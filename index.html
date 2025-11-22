@@ -1,0 +1,1266 @@
+      <!DOCTYPE html>
+<html lang="be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прафесіі будучыні - Беларускі даследчы праект</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #d22730;
+            --green: #3d8c40;
+            --green-dark: #2a632d;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --light-bg: #f4f7f6;
+            --dark-text: #2c3e50; /* Основной темный цвет */
+            --contrast-text: #34495e; /* Новый, более темный цвет для основного текста */
+            --light-gray: #e9ecef;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --gradient-main: linear-gradient(135deg, var(--red) 0%, #a01d26 100%);
+            --gradient-header: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.7;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            background: var(--gradient-header);
+            color: var(--white);
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-ornament {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.07;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+            animation: floatBackground 60s linear infinite;
+        }
+
+        @keyframes floatBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .header-quote {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            color: var(--white); /* Убедимся, что текст здесь контрастен */
+        }
+
+        /* --- Navigation --- */
+        .nav-toggle-container {
+            display: none; /* Hidden on desktop by default */
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--white);
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem;
+        }
+        
+        .toggle-button {
+            background: var(--gradient-main);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 10px rgba(210, 39, 48, 0.3);
+        }
+        
+        .toggle-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(210, 39, 48, 0.4);
+        }
+        
+        nav {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            transition: var(--transition);
+        }
+        
+        .nav-tab {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            position: relative;
+            font-weight: 600;
+            color: #5d6d7e; /* Улучшенная контрастность для неактивных вкладок */
+            transition: var(--transition);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-tab:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--red);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        
+        .nav-tab:hover {
+            color: var(--red);
+            background-color: #fff9f9;
+        }
+        
+        .nav-tab.active {
+            color: var(--red);
+        }
+        
+        .nav-tab.active:after {
+            width: 100%;
+        }
+        
+        /* --- Main Content --- */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            min-height: 60vh;
+        }
+        
+        .tab-content {
+            display: none;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            animation: fadeIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        h2 {
+            color: var(--dark-text);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            text-align: center;
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--red);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        h3 {
+            color: var(--green-dark);
+            margin: 2.5rem 0 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3:before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 24px;
+            background: var(--gold);
+            border-radius: 4px;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            color: var(--contrast-text); /* Улучшенная контрастность для основного текста */
+        }
+        
+        /* --- Quotes & Highlights --- */
+        .quote {
+            font-style: italic;
+            padding: 2rem 2.5rem;
+            background-color: #fffcf0;
+            margin: 2rem 0;
+            border-radius: 12px;
+            border-left: 5px solid var(--gold);
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
+            color: #4a4a4a; /* Контрастный текст внутри цитаты */
+        }
+        
+        .quote:before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 5rem;
+            color: rgba(212, 175, 55, 0.2);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .intro-highlight {
+            background: linear-gradient(to right, #ffffff, #fdf1f1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid rgba(210, 39, 48, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-highlight:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: var(--red);
+        }
+        
+        .intro-highlight p strong {
+            color: var(--red); /* Улучшенный контраст для выделенного текста */
+        }
+
+        /* --- Tables --- */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            background: white;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        th, td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--contrast-text); /* Улучшенный контраст для ячеек */
+        }
+        
+        th {
+            background: var(--gradient-header);
+            color: var(--white);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        
+        tr:hover td {
+            background-color: rgba(61, 140, 64, 0.05);
+            color: var(--green-dark);
+        }
+        
+        /* --- Grids & Cards --- */
+        .profession-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .profession-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .profession-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            border-color: rgba(61, 140, 64, 0.2);
+        }
+        
+        .profession-card h4 {
+            color: var(--red);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .profession-card p {
+            font-size: 0.95rem;
+            color: var(--dark-text); /* Улучшенная контрастность в карточках */
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        .goal-card {
+            background: var(--white);
+            padding: 1.8rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-card);
+            border-bottom: 4px solid var(--green);
+            transition: var(--transition);
+        }
+
+        .goal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .research-goals {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .goal-card h4 {
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+        
+        .goal-card h4:before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--green), #6abe6e);
+            color: white;
+            border-radius: 50%;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(61, 140, 64, 0.3);
+        }
+        
+        .goal-card p {
+            color: var(--contrast-text); /* Улучшенная контрастность в карточках целей */
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #1a2530;
+            color: var(--white);
+            padding: 4rem 1rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ornament in footer as background */
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        /* NEW STYLE FOR DIVIDER */
+        .footer-divider {
+            height: 6px;
+            width: 100px;
+            /* Gradient combining red, gold, and green theme colors */
+            background: linear-gradient(90deg, var(--red) 0%, var(--gold) 50%, var(--green) 100%);
+            margin: 2rem auto 2.5rem;
+            border-radius: 3px;
+            opacity: 0.9;
+            /* Subtle shadow/glow effect */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); 
+            transition: var(--transition);
+        }
+        
+        .footer-divider:hover {
+            width: 150px; /* Slight hover effect for engagement */
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: var(--gold);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            padding-bottom: 2px;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .footer-link:hover {
+            color: var(--white);
+            border-bottom: 1px solid var(--white);
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient-main);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(210, 39, 48, 0.4);
+            transition: var(--transition);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(210, 39, 48, 0.6);
+        }
+        
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .nav-toggle-container {
+                display: flex;
+            }
+            
+            nav {
+                box-shadow: none;
+            }
+            
+            .nav-container {
+                display: none; /* Hidden initially on mobile */
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .nav-container.show {
+                display: flex;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            @keyframes slideDown {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .nav-tab {
+                text-align: center;
+                border-bottom: 1px solid var(--light-gray);
+                padding: 1rem;
+                width: 100%;
+            }
+            
+            .nav-tab:after {
+                display: none; /* Remove underline animation on mobile */
+            }
+            
+            .nav-tab.active {
+                background-color: rgba(210, 39, 48, 0.05);
+                border-left: 4px solid var(--red);
+            }
+            
+            .tab-content {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+            
+            .profession-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-ornament"></div>
+        <div class="header-content">
+            <h1>Прафесіі будучыні</h1>
+            <!-- Removed subtitle div here -->
+            <div class="header-quote">
+                "Свая зямля – вось што аснова" - Якуб Колас
+            </div>
+        </div>
+    </header>
+    
+    <div class="nav-toggle-container">
+        <span style="font-weight: 700; color: var(--dark-text);">Меню</span>
+        <button class="toggle-button" id="toggleNav">
+            <span id="toggleText">Адкрыць</span> ☰
+        </button>
+    </div>
+    
+    <nav>
+        <div class="nav-container" id="navContainer">
+            <!-- Renamed tab -->
+            <div class="nav-tab active" data-tab="theory">Базавыя навыкі</div>
+            <div class="nav-tab" data-tab="practice">Прафесіі будучыні</div>
+            <div class="nav-tab" data-tab="classification">Класіфікацыя прафесій</div>
+            <div class="nav-tab" data-tab="dictionary">Слоўнік прафесій</div>
+        </div>
+    </nav>
+    
+    <main id="mainContent">
+        
+        <section id="theory" class="tab-content active">
+            <h2>Класіфікацыя прафесій будучыні</h2>
+            <p>У літаратуры па псіхалогіі існуюць розныя варыянты класіфікацыі прафесій. Шырокае распаўсюджанне за мяжой атрымалі класіфікацыі прафесій на падставе ўліку запатрабаванняў, здольнасцей і тэмпераменту асобы. Перш за ўсё, неабходна выдзеліць класіфкацыю прафесій Дж. Холанда, распрацаваную яшчэ ў 1966 годзе. Яе вартасцю з’яўляецца канцэпцыя спалучэння тэорыі асобы з тэорыяй выбару прафесіі. Псіхолаг сцвярджае, што кожны тып асобы скіраваны на пэўную прафесійную дзейнасць.</p>
+            
+            <p>У айчыннай псіхалогіі найбольшую папулярнасць атрымала класіфікацыя прафесій, распрацаваная Я.А. Клімавым. Такая формула выбару прафесіі дазваляе ўлічваць зацікаўленасць, здольнасці, фізічныя магчымасці чалавека і запатрабавальнасць прафесіі на рынку працы. Згодна з класіфікацыяй Я.А Клімава сучасныя і будучыя прафесіі можна падзяліць на пяць тыпаў:</p>
+            
+            <div class="profession-grid">
+                <div class="profession-card">
+                    <h4>Чалавек-Прырода</h4>
+                </div>
+                <div class="profession-card">
+                    <h4>Чалавек-Тэхніка</h4>
+                </div>
+                <div class="profession-card">
+                    <h4>Чалавек-Знакавая сістэма</h4>
+                </div>
+                <div class="profession-card">
+                    <h4>Чалавек-Чалавек</h4>
+                </div>
+                <div class="profession-card">
+                    <h4>Чалавек-Мастацкі вобраз</h4>
+                </div>
+            </div>
+
+            <p>У табліцы 2.1 намі была праведзена класіфікацыя прафесій будучыні.</p>
+
+            <h3>Кампазіты-неалагізмы – прафесіі будучыні</h3>
+            <div class="table-container">
+                <table style="font-size: 0.9rem;">
+                    <thead>
+                        <tr>
+                            <th>Чалавек-Чалавек</th>
+                            <th>Чалавек-Тэхніка</th>
+                            <th>Чалавек-Прырода</th>
+                            <th>Чалавек-Знакавая сістэма</th>
+                            <th>Чалавек-Мастацкі вобраз</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>віртуальны адвакат</td>
+                            <td>архітэктар інтэлектуальных сістэм кіравання</td>
+                            <td>ГМА-аграном</td>
+                            <td>біяэтык</td>
+                            <td>АRТ-ацэншчык</td>
+                        </tr>
+                        <tr>
+                            <td>дызайнер эмоцый</td>
+                            <td>архітэктар энерганулявых дамоў</td>
+                            <td>касмабіёлаг</td>
+                            <td>BIG DATA-журналіст</td>
+                            <td>архітэктар віртуальнасці</td>
+                        </tr>
+                        <tr>
+                            <td>офіс-менеджар</td>
+                            <td>дызайнер інтэрфейсаў</td>
+                            <td>касмагеолаг</td>
+                            <td>інфастыліст</td>
+                            <td>дызайнер віртуальнай рэчаіснасці</td>
+                        </tr>
+                        <tr>
+                            <td>персанальны антраполаг</td>
+                            <td>дызайнер-эрганаміст</td>
+                            <td>менеджар па касматурызму</td>
+                            <td>клінічны біяінфарматык</td>
+                            <td>SCIENCE-мастак</td>
+                        </tr>
+                        <tr>
+                            <td>трэнер творчага стану</td>
+                            <td>кансьерж робататэхнікі</td>
+                            <td>метэаэнергетык</td>
+                            <td>лічбавы лінгвіст</td>
+                            <td>гейм-дэвелапер</td>
+                        </tr>
+                        <tr>
+                            <td>экаважаты</td>
+                            <td>інжынер-касмадарожнік</td>
+                            <td>сіці-фермер</td>
+                            <td>менеджар крос-культурнай камунікацыі</td>
+                            <td>гейм-тэкстальнік</td>
+                        </tr>
+                        <tr>
+                            <td>экапрапаведнік</td>
+                            <td>кіберследчы</td>
+                            <td>экааналітык</td>
+                            <td>мультывалютны перакладчык</td>
+                            <td>дыджэй-прадзюсар</td>
+                        </tr>
+                        <tr>
+                            <td>эксперт, які працуе над вобразам будучага дзіцяці</td>
+                            <td>кібертэхнік распрацоўкі кіберпратэзаў і імплантаў</td>
+                            <td>экааўдзітар</td>
+                            <td>прараб-вотчар</td>
+                            <td>інстаграм-стыліст</td>
+                        </tr>
+                        <tr>
+                            <td>эксперт па персаніфіцыраванай медыцыне</td>
+                            <td>медыяпаліцэйскі</td>
+                            <td>аграэкалагічны фермер</td>
+                            <td>WEB-райтар</td>
+                            <td>інфаграфік-дызайнер</td>
+                        </tr>
+                        <tr>
+                            <td>медыцынскі маркетолаг</td>
+                            <td>прадзюсар сэнсавага поля</td>
+                            <td>спецыяліст па пераадальванні сістэмных экалагічных катастроф</td>
+                            <td>кіраўнік лічбавай трансфармацыі</td>
+                            <td>кантэнт-крыэйтар</td>
+                        </tr>
+                        <tr>
+                            <td>спецыяліст па біяхакінгу і прагараміруемаму здароўю</td>
+                            <td>тканкавы інжынер</td>
+                            <td>кліматычны інжынер</td>
+                            <td>утылізатар лічбавага смецця</td>
+                            <td>моўшн-дызайнер</td>
+                        </tr>
+                        <tr>
+                            <td>кансультант па здаровай старасці</td>
+                            <td>ІТ-аўдзітар</td>
+                            <td>экаважаты</td>
+                            <td>аўдзітар алгарытмаў</td>
+                            <td>тыктокер-кансультант</td>
+                        </tr>
+                        <tr>
+                            <td>віртуальны хірург</td>
+                            <td>ІТ-генетык</td>
+                            <td>-</td>
+                            <td>брокер дадзеных</td>
+                            <td>таргетолаг</td>
+                        </tr>
+                        <tr>
+                            <td>псіхолаг для кібаргаў</td>
+                            <td>ІТ-медык</td>
+                            <td>-</td>
+                            <td>інтэрпрэтатар алгарытмаў</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>ІТ-прапаведнік</td>
+                            <td>-</td>
+                            <td>інжынер квантавых камп’ютараў</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>BIM-менеджар-праекціроўшчык</td>
+                            <td>-</td>
+                            <td>юрыст у сферы рабатаэхнікі</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>WEB-майстар</td>
+                            <td>-</td>
+                            <td>этычны хакер</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>аператар медыцынскіх робатаў</td>
+                            <td>-</td>
+                            <td>BIM-праектэроўшчык</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>прафесійны пілот дрона</td>
+                            <td>-</td>
+                            <td>shadowTech-менеджар</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Разгледжаная класіфікацыя прафесій дазваляе зразумець, у якіх сферах чалавечай дзейнасці адбываюцца найбольш дынамічныя змены і якія прафесіі ў будучыні будуць карыстацца попытам сярод насельніцтва краіны. Многія з пералічаных прафесій ужо не з’яўляюцца выключна тэарэтычнымі мадэлямі – частка з іх паступова ўкараняецца ў практыку і ў Беларусі, і за мяжой.</p>
+
+            <h2>Месца прафесій будучыні ў сучаснай адукацыі нашай краіны</h2>
+            <p>У апошнія гады ў нашай краіне назіраецца паступовае фарміраванне новых прафесійных спецыяльнасцей, звязаных з інфармацыйнымі тэхналогіямі, біятэхналогіямі, экалагічнай бяспекай, камп’ютарным дызайнам і медыякамунікацыямі. У нашай рабоце мы прааналізавалі новыя спецыяльнасці, якія прапануюць ВНУ Беларусі ў 2025 годзе і прышлі да высновы, што пашырыўся інтарэс і попыт на наступныя спецыяльнасці: спецыяліст у сферы ІТ-менеджменту, робататэхнікі, кібербяспекі, лічбавага маркетынгу, біятэхналогій, аграрных інавацый.</p>
+
+            <h3>Новыя спецыяльнасці ў Рэспубліцы Беларусь</h3>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 35%">Назва вышэйшай установы</th>
+                            <th>Спецыяльнасць</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Беларускі дзяржаўны ўніверсітэт</td>
+                            <td>
+                                <ul style="list-style-type: disc; padding-left: 1.5rem; margin: 0;">
+                                    <li>біяінжынерыя і біяінфарматыка</li>
+                                    <li>біятэхналогія</li>
+                                    <li>графічны дызайн і мультымедыйны дызайн</li>
+                                    <li>камп’ютарнае мадэліраванне і распрацоўка вэб-тэхналогій</li>
+                                    <li>кібербяспека</li>
+                                    <li>інтэлектуальныя і кіберфізічныя сістэмы</li>
+                                    <li>ітэлектуальная электроніка</li>
+                                    <li>інфармацыйныя сістэмы і тэхналогіі ў здароваахоўванні</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Беларускі дзяржаўны ўніверсітэт замежных моў</td>
+                            <td>
+                                <ul style="list-style-type: disc; padding-left: 1.5rem; margin: 0;">
+                                    <li>лічбавая лінгвістыка, англійская мова</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Беларускі дзяржаўны ўніверсітэт інфарматыкі і радыёэлектронікі</td>
+                            <td>
+                                <ul style="list-style-type: disc; padding-left: 1.5rem; margin: 0;">
+                                    <li>камп’ютарная інжынерыя</li>
+                                    <li>штучны інтэлект</li>
+                                    <li>інфармацыйныя сістэмы ў гульнёвай індустрыі</li>
+                                    <li>кіберфізічныя сістэмы</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Брэсцкі дзяржаўны ўніверсітэт імя А. С. Пушкіна</td>
+                            <td>
+                                <ul style="list-style-type: disc; padding-left: 1.5rem; margin: 0;">
+                                    <li>урбаналогія і сіці-менеджмент</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Гомельскі дзяржаўны тэхнічны ўніверсітэт імя П.А. Сухога</td>
+                            <td>
+                                <ul style="list-style-type: disc; padding-left: 1.5rem; margin: 0;">
+                                    <li>лічбавая машынабудаўнічая вытворчасць</li>
+                                    <li>робататэхнічныя сістэмы</li>
+                                    <li>лічбавы маркетынг</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Брэсцкі дзяржаўны тэхнічны ўніверсітэт</td>
+                            <td>
+                                <ul style="list-style-type: disc; padding-left: 1.5rem; margin: 0;">
+                                    <li>лічбавая вытворчасць</li>
+                                    <li>робататэхнічныя сістэмы</li>
+                                    <li>штучны інтэлект</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Беларуска-расійскі ўніверсітэт</td>
+                            <td>
+                                <ul style="list-style-type: disc; padding-left: 1.5rem; margin: 0;">
+                                    <li>камп’ютарны інжырынг</li>
+                                    <li>электронны маркетынг</li>
+                                    <li>кіраўніцтва інавацыямі</li>
+                                    <li>біятэхнічныя сістэмы і тэхналогіі</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Гродненскі дзяржаўны ўніверсітэт імя Я.Купалы</td>
+                            <td>
+                                <ul style="list-style-type: disc; padding-left: 1.5rem; margin: 0;">
+                                    <li>дызайн віртуальнай прасторы</li>
+                                    <li>кібербяспека</li>
+                                    <li>штучны інтэлект</li>
+                                    <li>электронны маркетынг</li>
+                                    <li>прамысловыя робаты і робататэхнічныя комплекы</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Беларусь актыўна вывучае міжнародны вопыт у галінах эканомікі, адукацыі, інфармацыйных тэхналогій. Набыты вопыт рэалізуецца праз супольныя праграмы, стажыроўкі і інавацыйныя праекты. Напрыклад, у краіне працуе Парк высокіх тэхналогій, дзе ствараюцца выдатныя ўмовы для падрыхтоўкі і працаўладкавання таленавітай моладзі – праграмістаў і дызайнераў. Мэта праекта – стварэнне ў Беларусі ўмоў для развіцця ўсіх галін нацыянальнай эканомікі з улікам высокіх інфармацыйных тэхналогій. Парк высокіх тэхналогій рэалізуе мноства адукацыйных праектаў, з 2019 года выпускае электронны даведнік для абітурыентаў па ІТ-спецыяльнасцях, падтрымлівае каля 80 сумесных лабараторый у беларускіх тэхнічных універсітэтах [ 15].</p>
+            
+            <p>З 2012 года на тэрыторыі нашай краіны актыўна рэалізуецца кітайска-беларускі праект па стварэнні сучаснага індустрыяльнага парка “Вялікі камень”. На сённяшні дзень у ім працуе каля 150 кампаній-рэзідэнтаў, якія займаюцца распрацоўкамі і вытворчасцю прадукцыі ў сферах электронікі, тэлекамунікацый, новых матэрыялаў, беспілотных комплексаў, біятэхналогій і машынабудавання. “Больш чым за 10 гадоў ў індустрыяльным парку сфарміравалася зона актыўнага развіцця высокіх тэхналогій”, – адзначыў кіраўнік цэнтра Цюй Цзіньтун [7]. Парк “Вялікі камень” будуецца як горад будучыні – экалагічны, інавацыйны і камфортны для работы і жыцця людзей. Плануецца, што грамадзяне нашай краіны змогуць атрымоўваць там новыя прафесіі і кваліфікацыі і паспяхова рэалізоўвацца ў жыцці. Супрацоўніцтва Беларусі і Кітая ў сферы інавацый выходзіць на першы план у развіцці міждзяржаўных адносін. Разам нашы краіны дасягаюць сур’ёзных навуковых адкрыццяў і працуюць над будучымі распрацоўкамі.</p>
+            
+            <p>Актыўна развіваецца аграрна-экалагічны кірунак, звязаны з сельскай гаспадаркай, біятэхналогіямі і “зялёнай“ эканомікай. Развіццё эканомікі, прамысловасці, культурнай прасторы нашай рэспублікі адбываецца ў кантэксце глабальных сусветных працэсаў і патрабуе спалучэння сусветнага вопыту і нацыянальных традыцый, развіцця ўласных адукацыйных стандартаў, захавання ўласнай самабытнасці.</p>
+        </section>
+        
+        <section id="practice" class="tab-content">
+            <h2>Табліца 2.2 Новыя спецыяльнасці ў Рэспубліцы Беларусь</h2>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 35%">Назва вышэйшай установы</th>
+                            <th>Спецыяльнасць</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Беларускі дзяржаўны ўніверсітэт (БДУ)</td>
+                            <td>
+                                <ul style="list-style-type: none; padding-left: 0;">
+                                    <li>• біяінжынерыя і біяінфарматыка</li>
+                                    <li>• біятэхналогія</li>
+                                    <li>• графічны дызайн і мультымедыйны дызайн</li>
+                                    <li>• камп’ютарнае мадэліраванне і распрацоўка веб-тэхналогій</li>
+                                    <li>• кібербяспека</li>
+                                    <li>• інтэлектуальныя і кіберфізічныя сістэмы</li>
+                                    <li>• ітэлектуальная электроніка</li>
+                                    <li>• інфармацыйныя сістэмы і тэхналогіі ў здароваахоўванні</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Беларускі дзяржаўны ўніверсітэт замежных моў (МДЛУ)</td>
+                            <td>
+                                <ul style="list-style-type: none; padding-left: 0;">
+                                    <li>• лічбавая лінгвістыка, англійская мова</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Беларускі дзяржаўны ўніверсітэт інфарматыкі і радыёэлектронікі (БДУІР)</td>
+                            <td>
+                                <ul style="list-style-type: none; padding-left: 0;">
+                                    <li>• камп’ютарная інжынерыя</li>
+                                    <li>• штучны інтэлект</li>
+                                    <li>• інфармацыйныя сістэмы ў гульнёвай індустрыі</li>
+                                    <li>• кіберфізічныя сістэмы</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Брэсцкі дзяржаўны ўніверсітэт імя А. С. Пушкіна</td>
+                            <td>
+                                <ul style="list-style-type: none; padding-left: 0;">
+                                    <li>• урбаналогія і сіці-менеджмент</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Гомельскі дзяржаўны тэхнічны ўніверсітэт імя П.А. Сухога</td>
+                            <td>
+                                <ul style="list-style-type: none; padding-left: 0;">
+                                    <li>• лічбавая машынабудаўнічая вытворчасць</li>
+                                    <li>• робататэхнічныя сістэмы</li>
+                                    <li>• лічбавы маркетынг</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Брэсцкі дзяржаўны тэхнічны ўніверсітэт</td>
+                            <td>
+                                <ul style="list-style-type: none; padding-left: 0;">
+                                    <li>• лічбавая вытворчасць</li>
+                                    <li>• робататэхнічныя сістэмы</li>
+                                    <li>• штучны інтэлект</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Беларуска-расійскі ўніверсітэт</td>
+                            <td>
+                                <ul style="list-style-type: none; padding-left: 0;">
+                                    <li>• камп’ютарны інжырынг</li>
+                                    <li>• электронны маркетынг</li>
+                                    <li>• кіраўніцтва інавацыямі</li>
+                                    <li>• біятэхнічныя сістэмы і тэхналогіі</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Гродненскі дзяржаўны ўніверсітэт імя Я.Купалы</td>
+                            <td>
+                                <ul style="list-style-type: none; padding-left: 0;">
+                                    <li>• дызайн віртуальнай прасторы</li>
+                                    <li>• кібербяспека</li>
+                                    <li>• штучны інтэлект</li>
+                                    <li>• электронны маркетынг</li>
+                                    <li>• прамысловыя робаты і робататэхнічныя комплекы</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="classification" class="tab-content">
+            <h2>Класіфікацыя прафесій будучыні</h2>
+            
+            <p>Згодна з класіфікацыяй Я. А. Клімава сучасныя і будучыя прафесіі можна падзяліць на пяць тыпаў:</p>
+            
+            <div class="profession-grid">
+                <div class="profession-card">
+                    <h4>Чалавек-Прырода</h4>
+                    <p>Прафесіі, звязаныя з прыродай, раслінамі, жывёламі</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Чалавек-Тэхніка</h4>
+                    <p>Прафесіі, звязаныя з тэхнікай, механізмамі, прыладамі</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Чалавек-Знакавая сістэма</h4>
+                    <p>Прафесіі, звязаныя з лікамі, формуламі, тэкстамі</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Чалавек-Чалавек</h4>
+                    <p>Прафесіі, звязаныя з супрацоўніцтвам з людзьмі</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Чалавек-Мастацкі вобраз</h4>
+                    <p>Прафесіі, звязаныя з мастацтвам, творчасцю</p>
+                </div>
+            </div>
+            
+            <h3>Класіфікацыя прафесій будучыні</h3>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>«Чалавек-Чалавек»</th>
+                            <th>«Чалавек-Тэхніка»</th>
+                            <th>«Чалавек-Прырода»</th>
+                            <th>«Чалавек-Знакавая сістэма»</th>
+                            <th>«Чалавек-Мастацкі вобраз»</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Віртуальны адвакат</td>
+                            <td>Архітэктар інтэлектуальных сістэм кіравання</td>
+                            <td>ГМА-аграном</td>
+                            <td>Біяэтык</td>
+                            <td>АRТ-ацэншчык</td>
+                        </tr>
+                        <tr>
+                            <td>Дызайнер эмоцый</td>
+                            <td>Дызайнер інтэрфейсаў</td>
+                            <td>Касмабіёлаг</td>
+                            <td>BIG DATA-журналіст</td>
+                            <td>Архітэктар віртуальнасці</td>
+                        </tr>
+                        <tr>
+                            <td>Офіс-менеджар</td>
+                            <td>Архітэктар энерганулявых дамоў</td>
+                            <td>Касмагеолаг</td>
+                            <td>Інфастыліст</td>
+                            <td>Дызайнер віртуальнай рэчаіснасці</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="dictionary" class="tab-content">
+            <h2>Слоўнік "Прафесіі будучыні"</h2>
+            
+            <div class="profession-grid">
+                <div class="profession-card">
+                    <h4>Архітэктар віртуальнай рэальнасці</h4>
+                    <p>Спецыяліст, які будзе праектаваць рашэнні для адпачынку, працы і вучобы ў віртуальнай рэальнасці.</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Архітэктар інтэлектуальных сістэм кіравання</h4>
+                    <p>Распрацоўвае праграмнае забеспячэнне для беспілотнага транспарта і сістэм кіравання транспартнымі патокамі.</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Біяэтык</h4>
+                    <p>Спецыяліст у галіне этыкі біялагічных даследаванняў, які вырашае маральныя пытанні геннай інжынерыі.</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Дызайнер віртуальнай рэчаіснасці</h4>
+                    <p>Спецыяліст, які будзе распрацоўваць канцэптуальныя рашэнні для віртуальнай сферы.</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Дызайнер інтэрфейсаў</h4>
+                    <p>Спецыяліст па стварэнню зручных і эфектыўных інтэрфейсаў для карыстальнікаў (UI/UX).</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Касмабіёлаг</h4>
+                    <p>Спецыяліст па вывучэнні магчымасці жыцця ў касмічнай прасторы і на іншых планетах.</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Касмагеолаг</h4>
+                    <p>Спецыяліст па вывучэнні геалагічнай будовы нябесных цел і пошуку карысных выкапняў у космасе.</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Лічбавы лінгвіст</h4>
+                    <p>Прафесіянал, які будзе распрацоўваць лінгвістычныя сістэмы семантычнага перакладу і апрацоўкі тэкстаў.</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Медыяпаліцэйскі</h4>
+                    <p>Спецыяліст па забеспячэнні бяспекі ў інфармацыйнай прасторы і барацьбе з кіберзлачыннасцю.</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Метэаэнергетык</h4>
+                    <p>Спецыяліст па выкарыстанні метэаралагічных з'яў для атрымання энергіі.</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Сіці-фермер</h4>
+                    <p>Спецыяліст па вырошчванню раслін і прадуктаў харчавання непасрэдна ў гарадскіх умовах (на дахах, у будынках).</p>
+                </div>
+                
+                <div class="profession-card">
+                    <h4>Тканкавы інжынер</h4>
+                    <p>Спецыяліст, які будзе распрацоўваць тэхналагічны працэс для фарміравання канкрэтнай тканіны ці органа для трансплантацыі.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <!-- Новый, более красивый разделитель -->
+            <div class="footer-divider"></div>
+            <h3>Праект: "Прафесіі будучыні"</h3>
+            <p style="color: #c9d6e4;">Даследаванне неалагізмаў і тэндэнцый развіцця рынку працы ў Рэспубліцы Беларусь.</p>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">Галоўная</a>
+                <a href="#" class="footer-link">Пра аўтараў</a>
+                <a href="#" class="footer-link">Кантакты</a>
+                <a href="#" class="footer-link">Бібліятэка</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.8; color: #aeb9c7;">© 2025 Усе правы абаронены.</p>
+        </div>
+    </footer>
+
+    <div class="scroll-to-top" id="scrollToTop">↑</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tabs functionality
+            const tabs = document.querySelectorAll('.nav-tab');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Hide all contents
+                    contents.forEach(content => content.classList.remove('active'));
+                    
+                    // Show corresponding content
+                    const targetId = tab.getAttribute('data-tab');
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Close mobile menu if open
+                    const navContainer = document.getElementById('navContainer');
+                    const toggleText = document.getElementById('toggleText');
+                    if (window.innerWidth <= 768) {
+                        navContainer.classList.remove('show');
+                        toggleText.textContent = 'Адкрыць';
+                    }
+                    
+                    // Scroll to top of content softly
+                    window.scrollTo({
+                        top: document.querySelector('header').offsetHeight,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Mobile Menu Toggle
+            const toggleBtn = document.getElementById('toggleNav');
+            const navContainer = document.getElementById('navContainer');
+            const toggleText = document.getElementById('toggleText');
+
+            toggleBtn.addEventListener('click', () => {
+                navContainer.classList.toggle('show');
+                if (navContainer.classList.contains('show')) {
+                    toggleText.textContent = 'Закрыць';
+                } else {
+                    toggleText.textContent = 'Адкрыць';
+                }
+            });
+
+            // Scroll to Top Button
+            const scrollBtn = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollBtn.classList.add('visible');
+                } else {
+                    scrollBtn.classList.remove('visible');
+                }
+            });
+
+            scrollBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
